@@ -1,5 +1,7 @@
 # Answers - Analysis of Algorithms
 
+
+## Exercise 1
 ```txt
 
 a.  In order to approximate run time, each line is considered and the relationship between increasing `n` and the number of operations that results for a given line of code is deduced.  Then, run time becomes a function of the number of operations (y-axis) vs. the size of the input (x-axis).
@@ -44,14 +46,18 @@ b.  sum = 0 (constant time, only executes once regardless of input size)
             j += 1
             for k in range(j + 1, n): (linear time)
               k += 1
-              for l in range(k + 1, 10 + k): (linear time)
+              for l in range(k + 1, 10 + k): (constant time - notice that 
+              complexity doesn't grow here because the bounds of this range 
+              are not influenced by n at all here, so if n grows, this range 
+              doesn't grow like the other three do.)
                 l += 1
                 sum += 1
                 
          
-Overall, these four nested loops each demonstrate O(n) runtime and seperately
-return once for every value of n that is input into the loops, and the 
-nesting would lead to an overall runtime of O(n*n*n*n) or O(n^4) runtime.
+Overall, the first three nested loops each demonstrate O(n) runtime and 
+the last loop which is not controlled by the input size would be constant.Because of 
+this, the three loops that are controlled by n dictate the overall runtime 
+here of O(n^3).  
     
 c.  def bunnyEars(bunnies):
           if bunnies == 0: (constant)
@@ -62,6 +68,17 @@ c.  def bunnyEars(bunnies):
            value.  
 
 Overall, dropping the constants, this becomes linear or O(n) runtime.
+```
+
+
+
+## Exercise 2
+```txt
+
+Pseudocode analysis:
+
+def egg_drop(n, 
+
 ```
 
 
