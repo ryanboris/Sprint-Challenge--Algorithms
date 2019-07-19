@@ -77,8 +77,20 @@ Overall, dropping the constants, this becomes linear or O(n) runtime.
 
 Pseudocode analysis:
 
-def egg_drop(n, 
+allocate a variable in memory to track if the egg is broken or not (bool)
+allocate a variable in memory to track current_floor
+start at first floor (f = 1)
+    while not broken
+        drop egg
+        if broken
+            broken = True
+            return current_floor
+        else 
+            f += 1 (go to the next floor)
 
+Considering the runtime here - the while loop can only output one operation 
+for every input since it either will return or repeat once depending on if 
+the egg is broken or not, therefore, this could be approximated as O(n) runtime.
 ```
 
 
