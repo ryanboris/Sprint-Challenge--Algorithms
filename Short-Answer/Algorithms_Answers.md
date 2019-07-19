@@ -87,6 +87,8 @@ start at first floor (current_floor = 1)
             broken = True
             return current_floor
         else 
+            if current_floor == n
+                return current_floor
             current_floor += 1 (go to the next floor)
 
 Considering the runtime here - the while loop can only output one operation 
