@@ -57,8 +57,7 @@ class SortingRobot:
         """
         self._time += 1
         # Swap the held item with the list item at the robot's position
-        self._item, self._list[self._position] = self._list[
-                                                     self._position], self._item
+        self._item, self._list[self._position] = self._list[self._position], self._item
 
     def compare_item(self):
         """
