@@ -1,6 +1,6 @@
 import unittest
 import random
-from robot_sort import SortingRobot
+from stretch_robot import StretchRobot
 
 
 class Test(unittest.TestCase):
@@ -16,49 +16,49 @@ class Test(unittest.TestCase):
         self.random_list = [random.randint(0, 100) for i in range(0, 100)]
 
     def test_sorting_small_list(self):
-        robot = SortingRobot(self.small_list)
+        robot = StretchRobot(self.small_list)
         robot.sort()
         self.assertEqual(robot._list, sorted(self.small_list))
 
     def test_sorting_medium_list(self):
-        robot = SortingRobot(self.medium_list)
+        robot = StretchRobot(self.medium_list)
         robot.sort()
         self.assertEqual(robot._list, sorted(self.medium_list))
 
     def test_sorting_large_list(self):
-        robot = SortingRobot(self.large_list)
+        robot = StretchRobot(self.large_list)
         robot.sort()
         self.assertEqual(robot._list, sorted(self.large_list))
 
     def test_sorting_large_varied_list(self):
-        robot = SortingRobot(self.large_varied_list)
+        robot = StretchRobot(self.large_varied_list)
         robot.sort()
         self.assertEqual(robot._list, sorted(self.large_varied_list))
 
     def test_sorting_random_list(self):
-        robot = SortingRobot(self.random_list)
+        robot = StretchRobot(self.random_list)
         robot.sort()
         self.assertEqual(robot._list, sorted(self.random_list))
 
-    # def test_stretch_times(self):
-    #     robot = SortingRobot(self.small_list)
-    #     robot.sort()
-    #     self.assertLess(robot._time, 110)
+    def test_stretch_times(self):
+        robot = StretchRobot(self.small_list)
+        robot.sort()
+        self.assertLess(robot._time, 110)
 
-    #     robot = SortingRobot(self.medium_list)
-    #     robot.sort()
-    #     print(robot._time)
-    #     self.assertLess(robot._time, 1948)
+        robot = StretchRobot(self.medium_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 1948)
 
-    #     robot = SortingRobot(self.large_list)
-    #     robot.sort()
-    #     print(robot._time)
-    #     self.assertLess(robot._time, 27513)
+        robot = StretchRobot(self.large_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 27513)
 
-    #     robot = SortingRobot(self.large_varied_list)
-    #     robot.sort()
-    #     print(robot._time)
-    #     self.assertLess(robot._time, 28308)
+        robot = StretchRobot(self.large_varied_list)
+        robot.sort()
+        print(robot._time)
+        self.assertLess(robot._time, 28308)
 
 
 if __name__ == '__main__':

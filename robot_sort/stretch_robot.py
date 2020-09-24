@@ -1,4 +1,4 @@
-class SortingRobot:
+class StretchRobot:
     def __init__(self, l):
         """
         SortingRobot takes a list and sorts it.
@@ -57,7 +57,8 @@ class SortingRobot:
         """
         self._time += 1
         # Swap the held item with the list item at the robot's position
-        self._item, self._list[self._position] = self._list[self._position], self._item
+        self._item, self._list[self._position] = self._list[
+            self._position], self._item
 
     def compare_item(self):
         """
@@ -102,24 +103,29 @@ class SortingRobot:
         self.set_light_on()
         while self.light_is_on():
             self.set_light_off()
+            self.swap_item()
+
             while self.can_move_right():
-                self.swap_item()
                 self.move_right()
-                if self.compare_item() == 1:
-                    self.swap_item()
-                    self.set_light_on()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-            while self.can_move_left():
-                self.swap_item()
-                self.move_left()
                 if self.compare_item() == -1:
                     self.swap_item()
-                    self.set_light_on()
-                self.move_right()
+                elif self.compare_item() == 1:
+                    if not self.light_is_on():
+                        self.set_light_on()
+
+            if self.compare_item() == 1:
                 self.swap_item()
+
+            while self.can_move_left():
                 self.move_left()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                elif self.compare_item() == -1:
+                    if not self.light_is_on():
+                        self.set_light_on()
+
+            if not self.can_move_left():
+                self.swap_item()
 
 
 if __name__ == "__main__":
@@ -133,7 +139,7 @@ if __name__ == "__main__":
          17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83,
          13, 57, 86, 12, 56, 50, 55, 46]
 
-    robot = SortingRobot(l)
+    robot = StretchRobot(l)
 
     robot.sort()
     print(robot._list)
